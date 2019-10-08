@@ -1,0 +1,25 @@
+<p>add-employee works!</p>
+<br>
+<br>
+<br>
+<form>
+        <div class="form-group">
+          <label for="empname">Employee Name</label>
+          <input type="text" class="form-control" id="empname"  [(ngModel)]="employee.name" aria-describedby="emailHelp" placeholder="Enter employee name">
+          
+        </div>
+        <div class="form-group">
+          <label for="empsalary">Employee Salary</label>
+          <input type="number" class="form-control" id="empsalary" [(ngModel)]="employee.salary" placeholder="Enter Salary">
+        </div>
+        <div class="form-group">
+                <label for="empcity">Employee City</label>
+                <input type="text" class="form-control" id="empcity" [(ngModel)]="employee.city" placeholder="Enter City">
+              </div>
+              
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Employee</button>
+      </form>

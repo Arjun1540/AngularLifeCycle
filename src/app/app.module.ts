@@ -16,9 +16,12 @@ import { ContactComponent } from './contact/contact.component';
 import { SupportComponent } from './support/support.component';
 import { IndexComponent } from './index/index.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-
-
+import { CustomerSpportComponent } from './customer-spport/customer-spport.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeespportComponentComponent } from './employeespport-component/employeespport-component.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { EmployeeService } from './servieces/employee.service';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 @NgModule({
   declarations: [
     MylifeComponent,
@@ -30,14 +33,24 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ContactComponent,
     SupportComponent,
     IndexComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CustomerSpportComponent,
+   
+    EmployeeComponent,
+   
+    EmployeespportComponentComponent,
+   
+    EmployeeDetailsComponent,
+   
+    AddEmployeeComponent
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [Dataserviece, SampleService],
+  providers: [Dataserviece, SampleService,EmployeeService],
   bootstrap: [IndexComponent]
 })
 export class AppModule { }
