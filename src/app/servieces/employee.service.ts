@@ -27,7 +27,7 @@ export class EmployeeService {
       let maxIndex = employees.length -1;
       let employeewithMaxIndex =employees[maxIndex];
       employee.id=employeewithMaxIndex.id + 1;
-      employees.push;
+      employees.push(employee);
     })
   }
 }

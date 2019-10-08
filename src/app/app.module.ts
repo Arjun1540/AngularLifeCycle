@@ -3,7 +3,9 @@ import { SampleService } from './servieces/sample.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+//FormsModule is required for Template-Driven Froms
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+//ReactiveFormsModule is required for Reactive-forms and Model-Drive 
 import { AppRoutingModule } from './app-routing.module';
 import { MylifeComponent } from './mylife/mylife.component';
 import { Dataserviece } from './servieces/data.serveiece';
@@ -22,6 +24,8 @@ import { EmployeespportComponentComponent } from './employeespport-component/emp
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeService } from './servieces/employee.service';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { TemplateformComponent } from './templateform/templateform.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 @NgModule({
   declarations: [
     MylifeComponent,
@@ -35,22 +39,25 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     IndexComponent,
     PageNotFoundComponent,
     CustomerSpportComponent,
-   
+
     EmployeeComponent,
-   
+
     EmployeespportComponentComponent,
-   
+
     EmployeeDetailsComponent,
-   
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    TemplateformComponent,
+    ReactiveformComponent
     
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [Dataserviece, SampleService,EmployeeService],
-  bootstrap: [IndexComponent]
+  bootstrap: [TemplateformComponent]
 })
 export class AppModule { }

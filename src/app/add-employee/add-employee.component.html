@@ -2,24 +2,36 @@
 <br>
 <br>
 <br>
-<form>
+<form [formGroup]="empFormGroup" novalidate>
         <div class="form-group">
           <label for="empname">Employee Name</label>
-          <input type="text" class="form-control" id="empname"  [(ngModel)]="employee.name" aria-describedby="emailHelp" placeholder="Enter employee name">
-          
+          <input type="text" class="form-control" id="empname" formControlName="name" aria-describedby="emailHelp" placeholder="Enter employee name" [(ngModel)]="employee.name" >
+        <div *ngIf="(empFormGroup.controls['name'].invalid) && (empFormGroup.controls['name'].dirty || empFormGroup.controls['name'].touched)" class="alert alert-danger">
+          <div *ngIf="empFormGroup.controls['name'].errors.required">
+            Name is required
+          </div>
+        </div>
         </div>
         <div class="form-group">
           <label for="empsalary">Employee Salary</label>
-          <input type="number" class="form-control" id="empsalary" [(ngModel)]="employee.salary" placeholder="Enter Salary">
+          <input type="text" class="form-control" id="empsalary" [(ngModel)]="employee.salary" formControlName="salary" placeholder="Enter Salary">
+        </div>
+        <div *ngIf="(empFormGroup.controls['salary'].invalid) && (empFormGroup.controls['salary'].dirty || empFormGroup.controls['salary'].touched)" class="alert alert-danger">
+          <div *ngIf="empFormGroup.controls['name'].errors.required">
+            Salary is required
+          </div>
+        
         </div>
         <div class="form-group">
                 <label for="empcity">Employee City</label>
-                <input type="text" class="form-control" id="empcity" [(ngModel)]="employee.city" placeholder="Enter City">
+                <input type="text" class="form-control" id="empcity" [(ngModel)]="employee.city" formControlName="city" placeholder="Enter City">
               </div>
+              <div *ngIf="(empFormGroup.controls['city'].invalid) && (empFormGroup.controls['city'].dirty || empFormGroup.controls['city'].touched)" class="alert alert-danger">
+                <div *ngIf="empFormGroup.controls['city'].errors.required">
+                  City is required
+                </div>
               
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Employee</button>
-      </form>
+              </div>
+    
+        <button type="submit" class="btn btn-primary" (click)="addEmployee()" [disabled]="empFormGroup.pristine || empFormGroup.invalid">Add Employee</button>
+        </form>

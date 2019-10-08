@@ -1,0 +1,28 @@
+<form action="" #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+    <div class="form-group">
+        <label for="empname">Employee name</label>
+        <input type="text" class="form-control" placeholder=" enter User name" name="empname" required maxlength="25" [(ngModel)]="username" #pickedName="ngModel">
+        <div *ngIf="!pickedName.valid && picked.touched">
+            UserName is required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" placeholder=" enter Email" name="email" required maxlength="25" [(ngModel)]="email" #userEmail="ngModel">
+        <div *ngIf="!userEmail.valid && puserEmail.touched">
+            Email is required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">User password</label>
+        <input type="password" class="form-control" placeholder=" enter password" name="password" required maxlength="25"[(ngModel)]='password' #userPassword="ngModel">
+        <div *ngIf="!userPassword.valid && userPassword.touched">
+            Password is required.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!newUserForm.form.valid">Success</button>
+    <button type="button" class="btn btn-primary" (click)="newUserForm.reset()">Reset</button>
+</form>
+<hr>
+<pre>{{newUserForm.form.value | json}}</pre>
+<pre>username: {{newUserForm.form.value | json}}</pre>
